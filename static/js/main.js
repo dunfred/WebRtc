@@ -25,9 +25,6 @@ let createOffer = async () => {
     remoteStream = new MediaStream()
     document.getElementById('user-2').srcObject = remoteStream;
 
-    document.getElementById('answer-sdp').innerHTML = localStream;
-    console.log(localStream);
-
     localStream.getTracks().forEach((track) => {
         peerConnection.addTrack(track, localStream);
     })
