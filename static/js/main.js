@@ -64,7 +64,7 @@ let createAnswer = async () => {
 
     peerConnection.onicecandidate = async (event) => {
         if (event.candidate){
-            document.getElementById('offer-sdp').value = JSON.stringify(peerConnection.localDescription)
+            document.getElementById('answer-sdp').value = JSON.stringify(peerConnection.localDescription)
         }
     }
     
