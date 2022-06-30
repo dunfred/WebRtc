@@ -104,7 +104,7 @@
 
         if (!offer) return alert("Retrieve offer first!");
 
-        // offer = JSON.parse(offer);
+        offer = JSON.parse(offer);
         await peerConnection.setRemoteDescription(offer)
 
         let answer = await peerConnection.createAnswer()
@@ -117,7 +117,7 @@
         let answer = document.getElementById('answer-sdp').value
         if (!answer) return alert("Retrieve answer from peer first!");
 
-        // answer = JSON.parse(answer)
+        answer = JSON.parse(answer)
 
         if (!peerConnection.currentRemoteDescription){
             peerConnection.setRemoteDescription(answer)
