@@ -96,7 +96,7 @@
 
         peerConnection.onicecandidate = async (event) => {
             if (event.candidate){
-                document.getElementById('answer-sdp').value = JSON.stringify(peerConnection.localDescription)
+                document.getElementById('offer-sdp').value = JSON.stringify(peerConnection.localDescription)
             }
         }
         
@@ -104,8 +104,7 @@
 
         if (!offer) return alert("Retrieve offer first!");
 
-        offer = JSON.stringify(offer);
-
+        offer = JSON.parse(offer);
         await peerConnection.setRemoteDescription(offer)
 
         let answer = await peerConnection.createAnswer()
